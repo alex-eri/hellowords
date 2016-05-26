@@ -1,3 +1,4 @@
+#coding:utf8
 import socket
 import threading
 from itertools import cycle
@@ -51,7 +52,7 @@ def read(fd,lock):
         
 def write(fd,lock):
     for cmd in COMMANDS:
-        logging.debug('> ' + l)
+        logging.debug('> ' + cmd)
         lock.acquire()
         fd.write(cmd)
         fd.write(CR)
@@ -71,7 +72,7 @@ def process(s):
     wt.join()
     
     
-if __name__ == "__main___":
+if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     while True:
         connect()
